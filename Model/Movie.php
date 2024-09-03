@@ -26,5 +26,47 @@ class Movie {
 
 function __construct($title,$language,$releaseYear,$genre,$rating,$duration,$boxOffice,$director){
 
+    // uso di  $this per  accedere alle proprietà e ai metodi di quell'istanza specifica.
+    $this->title;
+    $this->language;
+    $this->releaseYear;
+    $this->genre;
+    $this->rating;
+    $this->$duration;
+    $this->$boxOffice;
+    $this->$director;
+
+}
+// creazione metodo get per ritornare i valori ed utilizzarli 
+public function getTitle(){
+    return $this->title;
+}
+
+public function getLanguage(){
+    return $this->language;
+}
+
+public function getReleaseYear(){
+    return $this->releaseYear;
+}
+
+public function getGenre(){
+    return $this->genre;
+}
+
+public function getRating(){
+    return $this->rating;
+}
+
+public function getDuration(){
+    return $this->duration;
+}
+
+public function getBoxOffice(){
+    return $this->boxOffice;
+}
+
+public function getDirector(){
+    return $this->director; 
 }
 
