@@ -37,38 +37,61 @@
             $this->director = $director;
 
         }
-        // creazione metodo get per ritornare i valori ed utilizzarli 
-        public function getTitle(){
-            return $this->title;
-        }
 
-        public function getLanguage(){
-            return $this->language;
-        }
 
-        public function getReleaseYear(){
-            return $this->releaseYear;
-        }
-
-        public function getGenre(){
-            return $this->genre;
-        }
-
-        public function getRating(){
-            return $this->rating;
-        }
-
-        public function getDuration(){
-            return $this->duration;
-        }
-
-        public function getBoxOffice(){
-            return $this->boxOffice;
-        }
-
-        public function getDirector(){
-            return $this->director; 
+        // utilizzo della funzione per stampare nell html utilizzando foreach per iterare nel db rendendo modulabile il codice 
+        public function printMovieAllDetails() {
+            $listDetails = '<div class="card" style="width: 18rem;">';
+            $listDetails .= '<div class="card-body">';
+            $listDetails .= '<h5 class="card-title">' . $this->title . '</h5>';
+            $listDetails .= '<ul class="list-unstyled">';
+            $listDetails .= '<li><strong>Language:</strong> ' . $this->language . '</li>';
+            $listDetails .= '<li><strong>Release Year:</strong> ' . $this->releaseYear . '</li>';
+            $listDetails .= '<li><strong>Genre:</strong> ' . $this->genre . '</li>';
+            $listDetails .= '<li><strong>Rating:</strong> ' . $this->rating . '</li>';
+            $listDetails .= '<li><strong>Duration:</strong> ' . $this->duration . ' minutes</li>';
+            $listDetails .= '<li><strong>Box Office:</strong> $' . number_format($this->boxOffice, 0, '.', ',') . '</li>';
+            $listDetails .= '<li><strong>Director:</strong> ' . $this->director . '</li>';
+            $listDetails .= '</ul>';
+            $listDetails .= '</div>';
+            $listDetails .= '</div>';
+            // utilizzato $listDetails per stampare all'unisono raggruppando il tutto 
+            echo $listDetails;
         }
 
     }
+    //     // creazione metodo get per ritornare i valori ed utilizzarli 
+    //     public function getTitle(){
+    //         return $this->title;
+    //     }
+
+    //     public function getLanguage(){
+    //         return $this->language;
+    //     }
+
+    //     public function getReleaseYear(){
+    //         return $this->releaseYear;
+    //     }
+
+    //     public function getGenre(){
+    //         return $this->genre;
+    //     }
+
+    //     public function getRating(){
+    //         return $this->rating;
+    //     }
+
+    //     public function getDuration(){
+    //         return $this->duration;
+    //     }
+
+    //     public function getBoxOffice(){
+    //         return $this->boxOffice;
+    //     }
+
+    //     public function getDirector(){
+    //         return $this->director; 
+    //     }
+
+    // }
 ?>
