@@ -38,27 +38,36 @@
 
         }
 
-
-        // utilizzo della funzione per stampare nell html utilizzando foreach per iterare nel db rendendo modulabile il codice 
         public function printMovieAllDetails() {
-            $listDetails = '<div class="card" style="width: 18rem;">';
-            $listDetails .= '<div class="card-body">';
-            $listDetails .= '<h5 class="card-title">' . $this->title . '</h5>';
-            $listDetails .= '<ul class="list-unstyled">';
-            $listDetails .= '<li><strong>Language:</strong> ' . $this->language . '</li>';
-            $listDetails .= '<li><strong>Release Year:</strong> ' . $this->releaseYear . '</li>';
-            $listDetails .= '<li><strong>Genre:</strong> ' . $this->genre . '</li>';
-            $listDetails .= '<li><strong>Rating:</strong> ' . $this->rating . '</li>';
-            $listDetails .= '<li><strong>Duration:</strong> ' . $this->duration . ' minutes</li>';
-            $listDetails .= '<li><strong>Box Office:</strong> $' . number_format($this->boxOffice, 0, '.', ',') . '</li>';
-            $listDetails .= '<li><strong>Director:</strong> ' . $this->director . '</li>';
-            $listDetails .= '</ul>';
-            $listDetails .= '</div>';
-            $listDetails .= '</div>';
-            // utilizzato $listDetails per stampare all'unisono raggruppando il tutto 
-            echo $listDetails;
+            $listDetails = [
+                'Language' => $this->language,
+                'Release Year' => $this->releaseYear,
+                'Genre' => $this->genre,
+                'Rating' => $this->rating,
+                'Duration' => $this->duration . ' minutes',
+                'Box Office' => '$' . number_format($this->boxOffice, 0, '.', ','),
+                'Director' => $this->director
+            ];
+        
+            echo $this->generateCard($this->title, $listDetails);
         }
-
+        
+        public function generateCard($title, $listDetails) {
+            $card = '<div class="card" style="width: 18rem;">';
+            $card .= '<div class="card-body">';
+            $card .= '<h5 class="card-title">' . $title . '</h5>';
+            $card .= '<ul class="list-unstyled">';
+        
+            foreach ($listDetails as $label => $value) {
+                $card .= '<li><strong>' . $label . ':</strong> ' . $value . '</li>';
+            }
+        
+            $card .= '</ul>';
+            $card .= '</div>';
+            $card .= '</div>';
+        
+            return $card;
+        }
     }
     //     // creazione metodo get per ritornare i valori ed utilizzarli 
     //     public function getTitle(){
